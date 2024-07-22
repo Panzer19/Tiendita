@@ -1,0 +1,16 @@
+
+span {
+
+    font-size: 0.8rem;
+    position: relative;
+    top: -10px;
+}
+
+svg{
+    position: relative;
+    top: -2px;
+    width: 15px;
+    height:15px;
+    
+}
+
