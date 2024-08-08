@@ -1,15 +1,15 @@
 
-import './itemListContainer.css'
+import './carrusel.css'
 import  Perchero from '../../assets/img/Perchero.jpg'
-import Lentes from '../../assets/img/Lentes.jpg'
-import ChicaPerchas from '../../assets/img/ChicaPerchas.jpg'
+import  Lentes from '../../assets/img/Lentes.jpg'
+import  ChicaPerchas from '../../assets/img/ChicaPerchas.jpg'
 
-    const Main = () => {
+    const Carrusel = () => {
 
         return(
 
-            <div className='grid-container'>
-                <main>
+            <div className='carrusel'>
+
                     <div id="carouselExampleDark" className="carousel carousel-dark slide">
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -49,19 +49,10 @@ import ChicaPerchas from '../../assets/img/ChicaPerchas.jpg'
                         </button>
                     </div>
 
-                </main>
 
-                <aside>
-
-
-
-                </aside>
-            
-            
-            
             </div>
         )
-    
+
     }
 
-export default Main
+export default Carrusel

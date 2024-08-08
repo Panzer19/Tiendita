@@ -1,5 +1,5 @@
 import react from "react"
-import Boton from "../Boton"
+import Boton from "../../Boton"
 import Swal from 'sweetalert2'
 
 
@@ -14,7 +14,7 @@ import Swal from 'sweetalert2'
         return(
             <>
                 <Boton fn={saludo} texto="La Tiendita"/>
-                
+
             </>
         )
 

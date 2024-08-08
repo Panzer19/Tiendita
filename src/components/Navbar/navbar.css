@@ -23,9 +23,10 @@
 .logo {
 
     width: 2rem;
-    height: 2rem;
 
 }
+
+
 
 .nav-link {
 
@@ -40,6 +41,6 @@
 
 .nav-link:hover{
 
-    transform:scale(1.1);
+    transform: scale(1.1);
 
 }

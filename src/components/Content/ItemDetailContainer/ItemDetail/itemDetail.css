@@ -1,0 +1,33 @@
+
+.detalleContainer{
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    width: auto;
+    margin: 100px;
+
+}
+
+.detalleContainer-first{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+
+}
+
+.conteiner-img{
+
+    width: 500px;
+    height: 400px;
+
+}
+
+.prod-img{
+
+    width: 100%;
+    height: 100%;
+
+}

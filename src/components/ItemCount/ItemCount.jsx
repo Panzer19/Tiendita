@@ -15,7 +15,7 @@ const ItemCount = () => {
 
             alert("Excedio el limite de compra")
         }
-    
+
     }
 
     const restar = () => {
@@ -23,18 +23,21 @@ const ItemCount = () => {
         if(count > 1){
             setCount(count-1)
         }
-        
+
 
     }
 
 
     return (
-
-        <div className='container'>
+        <>
+            <div className='container-itemCount'>
             <Boton texto="-" fn={restar} />
             <span className="span">{count}</span>
             <Boton texto="+" fn={sumar} />
-        </div>
+            </div>
+            <button>Añadir Al Carrito</button>
+        </>
+
 
     )
 

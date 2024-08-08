@@ -1,11 +1,17 @@
 
-.container {
+.container-itemCount{
 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+
+}
+
+.botoncito {
+
+    border: none;
 
 }
 
@@ -13,5 +19,6 @@
 
     border: 0.5px solid gray;
     width: 100px;
+    top: 0;
 
 }
