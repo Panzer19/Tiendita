@@ -21,6 +21,8 @@ function App() {
           <Route path='/' element={<ItemListContainer/>} />
           <Route path='/categoria/:categoryName' element={<ItemListContainer/>}/>
           <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
+          <Route path='/*' element={<h1>No se que hiciste pero Rompiste Todo</h1>}/>
+
       </Routes>
 
     </BrowserRouter>

@@ -11,10 +11,10 @@ const ItemListContainer = () => {
     const [ productos , setProductos] = useState ([])
     const [ cargando , setCargando] = useState(true)
 
+
     const {categoryName} = useParams()
 
     useEffect( () => {
-
 
         if (categoryName) {
 
@@ -31,14 +31,6 @@ const ItemListContainer = () => {
             .finally(() => setCargando(false))
 
         }
-
-
-            // getProductos()
-            // .then( (res) => setProductos(res))
-            // .catch()
-            // .finally(() => setCargando(false))
-
-
 
     },[categoryName])
 

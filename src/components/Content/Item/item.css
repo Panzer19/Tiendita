@@ -1,8 +1,8 @@
 
 .prod-card{
 
-    width: 400px;
-    height: 500px;
+    width: 350px;
+    height: 450px;
     border: 3px solid pink;
     border-left: none;
     border-right: none;
@@ -20,8 +20,8 @@
 
 .foto-del-producto{
 
-    width: 400px;
-    height: 350px;
+    width: 350px;
+    height: 300px;
     padding: 30px;
 
     border: 3px solid rgba(255, 192, 203, 0.438);

@@ -1,13 +1,11 @@
 .itemContainer {
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 0;
 
+
+    display: grid;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 0rem;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    place-items: center;
 }

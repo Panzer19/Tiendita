@@ -28,7 +28,7 @@ const ItemDetail = ({producto}) =>{
                 <h2 className="prod-title">{title}</h2>
                 <h6>{category}</h6>
                 <p>{price}</p>
-                <ItemCount></ItemCount>
+                <ItemCount/>
             </div>
         </div>
 
