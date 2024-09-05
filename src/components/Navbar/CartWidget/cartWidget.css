@@ -4,6 +4,9 @@ span {
     font-size: 0.8rem;
     position: relative;
     top: -10px;
+    font-style: none;
+    text-decoration: unset;
+    color: black;
 }
 
 svg{
@@ -11,6 +14,6 @@ svg{
     top: -2px;
     width: 15px;
     height:15px;
-    
-}
+    color: black;
 
+}

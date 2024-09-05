@@ -1,0 +1,36 @@
+.item-de-carrito {
+
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin: 30px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+
+
+.cartItem-Detail {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 90%;
+
+
+}
+
+.cartItem-Detail img {
+
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    box-shadow: 5cap;
+
+}
