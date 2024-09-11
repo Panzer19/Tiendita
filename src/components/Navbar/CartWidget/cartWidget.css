@@ -10,10 +10,25 @@ span {
 }
 
 svg{
+
     position: relative;
     top: -2px;
     width: 15px;
     height:15px;
-    color: black;
+
+
+
+}
+
+svg path {
+
+    transition: color 0.3s, transform 0.3s;
+
+}
+
+svg path :hover{
+
+    transform: scale(1.1);
+    color: #2e294e;
 
 }

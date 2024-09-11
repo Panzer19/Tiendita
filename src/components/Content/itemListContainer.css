@@ -9,3 +9,31 @@
     grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
     place-items: center;
 }
+
+
+.spinner {
+    border: 8px solid #f3f3f3; /* Color de fondo */
+    border-top: 8px solid #3498db; /* Color del spinner */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Centrar en contenedor */
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+
+  .custom-popup {
+    max-width: 90vw !important; /* Ajusta el ancho máximo del popup */
+    width: auto !important;
+    max-height: 80vh !important; /* Ajusta la altura máxima del popup */
+    overflow-y: auto !important; /* Asegúrate de que haya scroll si el contenido es largo */
+}

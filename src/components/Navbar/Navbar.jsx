@@ -67,32 +67,29 @@ const Navbar = () => {
 
     return (
 
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
-
+        <nav className="custom-navbar">
+            <div className="navbar-container">
                 <Alert />
 
 
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav">
-
-                        <Link key="home" to={`/`} className="nav-link" aria-current="page">Home</Link>
+                <div className="navbar-menu" id="navbarMenu">
+                    <div className="navbar-links">
+                        <Link key="home" to={`/`} className="nav-item" aria-current="page">Inicio</Link>
 
                         {
-                            categorias.length > 0 && categorias.map(e => <Link key={e} to={`/categoria/${e}`} className="nav-link" aria-current="page">{e}</Link>)
+                            categorias.length > 0 && categorias.map(e =>
+                                <Link key={e} to={`/categoria/${e}`} className="nav-item" aria-current="page">{e}</Link>
+                            )
                         }
 
-                        <Link rel="stylesheet" className="nav-link" to={`/cart`} key="carrito"><CartWidget></CartWidget></Link>
-
-
+                        <Link rel="stylesheet" className="nav-item" to={`/cart`} key="carrito">
+                            <CartWidget />
+                        </Link>
                     </div>
                 </div>
             </div>
-
         </nav>
+
     )
 
 }

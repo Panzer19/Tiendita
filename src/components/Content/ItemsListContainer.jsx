@@ -11,6 +11,8 @@ import { useParams } from "react-router-dom"
 import Swal from 'sweetalert2'
 import { CartContext } from '../context/CartContext';
 import { productosasync } from '../../asyncMock';
+import LoadingSpinner from './widget/loadingSpiner/LoadingSpinner';
+
 
 const ItemListContainer = () => {
 
@@ -20,55 +22,6 @@ const ItemListContainer = () => {
     const { contexto } = useContext(CartContext)
 
     const { categoryName } = useParams()
-
-
-
-
-    async function cargarProductos(productos) {
-        try {
-          const productosCollection = collection(db, 'productos'); // Cambia 'productos' si tu colección tiene otro nombre
-
-          for (const [index, producto] of productos.entries()) {
-            console.log(`Procesando producto ${index + 1} de ${productos.length}...`);
-
-            // Verificar si el producto ya existe en la colección
-            const q = query(productosCollection, where("title", "==", producto.title));
-            const querySnapshot = await getDocs(q);
-
-            if (querySnapshot.empty) {
-              // Cambiar las propiedades según el formato que has especificado
-              const productoData = {
-                title: producto.title,
-                description: producto.description,
-                price: producto.price,
-                image: producto.image,
-                category: producto.category,
-                sexo: producto.sexo,
-                stock: producto.stock,
-              };
-
-              // Añadir el producto a Firestore
-              await addDoc(productosCollection, productoData);
-              console.log(`Producto ${index + 1} cargado con éxito.`);
-            } else {
-              console.log(`Producto "${producto.title}" ya existe. Saltando...`);
-            }
-          }
-
-          console.log('Todos los productos han sido procesados.');
-        } catch (error) {
-          console.error('Error al cargar productos:', error);
-        }
-      }
-      // Llamar a la función en useEffect
-      useEffect(() => {
-        cargarProductos(productosasync);
-      }, []);
-
-
-
-
-
 
 
     useEffect(() => {
@@ -105,7 +58,8 @@ const ItemListContainer = () => {
 
     if (cargando) {
 
-        return (<h2>Cargando.......</h2>)
+        return <LoadingSpinner></LoadingSpinner>
+
 
     }
 
