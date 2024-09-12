@@ -1,45 +1,53 @@
-
-.prod-card{
-
-    width: 350px;
-    height: 450px;
-    border: 3px solid pink;
-    border-left: none;
-    border-right: none;
-    margin: 2px;
-    margin-top: 20px;
-    color: black;
-    text-decoration: unset;
+/* Tarjeta del producto */
+.prod-card {
+    width: 300px;
+    border: 2px solid rgba(255, 192, 203, 0.438); /* Borde rosa suave */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
 }
 
-.nombre-de-producto{
-
-    font-size: 1rem;
-
-}
-
-.foto-del-producto{
-
-    width: 350px;
-    height: 300px;
-    padding: 30px;
+/* Imagen del producto */
+.foto-del-producto {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
-
-    border: 3px solid rgba(255, 192, 203, 0.438);
-
-    border-top: none;
-
+    border-radius: 8px 8px 0 0;
+    border-bottom: 2px solid rgba(255, 192, 203, 0.438); /* Borde rosa en la parte inferior de la imagen */
 }
 
-
-.prod-card-container{
-
-    text-decoration: unset;
-
+/* Nombre del producto */
+.nombre-de-producto {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0.5rem 0;
 }
 
-.prod-card-container:hover {
+/* Precio del producto */
+.prod-card p {
+    font-size: 1.5rem;
+    color: #E91E63; /* Color rosa intenso */
+    font-weight: bold;
+}
 
-    transform: scale(1.01);
+/* Categoría del producto */
+.prod-card h6 {
+    font-size: 0.9rem;
+    color: #555;
+}
 
+/* Efecto hover en la tarjeta */
+.prod-card-container:hover .prod-card {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Más sombra al hacer hover */
+}
+
+/* Link del producto sin subrayado */
+.prod-card-container {
+    text-decoration: none;
+    color: inherit;
 }

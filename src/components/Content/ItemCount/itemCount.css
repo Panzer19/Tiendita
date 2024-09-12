@@ -1,24 +1,57 @@
-
-.container-itemCount{
-
+/* Contenedor del contador */
+.item-count-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-
+    margin-top: 1rem;
+    gap: 0;
 }
 
-.botoncito {
+/* Botones de sumar y restar */
+.btn-count {
+    background-color: #d5e5f5; /* Color primario de la paleta */
+    color: #2698f2;
 
-    border: none;
-
+    padding: 8px 16px;
+    border: 1px solid ;
+    border-radius: 4px; /* Borde menos redondeado */
+    font-size: 1rem; /* Tamaño de fuente reducido */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.span {
+.btn-count:hover {
+    background-color: #2698f2; /* Color secundario de la paleta */
+    color: aliceblue;
+}
 
-    border: 0.5px solid gray;
-    width: 100px;
+/* Visualización del contador */
+.count-display {
+    font-size:1rem; /* Tamaño de fuente reducido */
+    font-weight: bold;
+
+    background-color: #ffffff; /* Color de fondo más claro */
+    border: 1px solid #2698f2;
+    border-radius: 5px;
+    padding: 8px 50px;
     top: 0;
+}
 
+
+/* Botón de agregar al carrito */
+.btn-add-cart {
+    background-color: #2698f2; /* Nuevo color para el botón */
+    color: white;
+    padding: 8px 16px; /* Tamaño reducido del padding */
+    border: none;
+    border-radius: 5px; /* Borde menos redondeado */
+    font-size: 1rem; /* Tamaño de fuente reducido */
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    margin-left: 25px;
+}
+
+.btn-add-cart:hover {
+    background-color: #1e80c3; /* Color ligeramente más oscuro para el hover */
 }

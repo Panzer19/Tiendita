@@ -13,8 +13,8 @@ const Checkout = () => {
     const [ mail , setMail] = useState("")
     const [direccion , setDireccion] = useState("")
     const [ order , setOrder] = useState("")
-    const [orderSuccess, setOrderSuccess] = useState(false);
-
+    const [orderSuccess, setOrderSuccess] = useState(false)
+    const [isSumbmiting , setIsSumbiting] = useState(false)
     const {cart,setCart} = useContext(CartContext)
 
 
@@ -36,6 +36,7 @@ const Checkout = () => {
     const handleSubmit = async(e) => {
 
         e.preventDefault();
+        setIsSumbiting(true)
 
 
         if (cart.length === 0) {
@@ -73,7 +74,7 @@ const Checkout = () => {
                         popup: 'my-popup-class'
                     }
                 }).then(() => {
-                    // Mostrar el mensaje de éxito
+
                     return Swal.fire({
                         title: "Good job!",
                         text: "Ya realizaste tu pedido",
@@ -82,11 +83,11 @@ const Checkout = () => {
                     });
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        setOrderSuccess(true); // Actualizar el estado para mostrar el mensaje de agradecimiento
+                        setOrderSuccess(true);
                     }
                 });
 
-
+                setIsSumbiting(false)
 
         } catch (error) {
             console.error("Error al realizar el pedido: ", error);
@@ -100,22 +101,41 @@ const Checkout = () => {
 
         <>
                 {!orderSuccess ? (
-                    <div>
-                        <h3>Ingresa los datos para terminar tu Compra</h3>
-                        <form className="checkout-form" onSubmit={handleSubmit}>
-                            <label htmlFor="nombre">Nombre</label>
-                            <input type="text" name="nombre" required onChange={(e) => setNombre(e.target.value)} />
-                            <label htmlFor="email">Email</label>
-                            <input type="email" name="email" required onChange={(e) => setMail(e.target.value)} />
-                            <label htmlFor="direccion">Direccion</label>
-                            <input type="text" name="direccion" required onChange={(e) => setDireccion(e.target.value)} />
-                            <button type="submit">Enviar</button>
-                        </form>
-                    </div>
+                    <div className="checkout-container">
+                    <h3>Ingresa los datos para terminar tu Compra</h3>
+                    <form className="checkout-form" onSubmit={handleSubmit}>
+                        <label htmlFor="nombre">Nombre</label>
+                        <input
+                            type="text"
+                            name="nombre"
+                            required
+                            onChange={(e) => setNombre(e.target.value)}
+                        />
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            onChange={(e) => setMail(e.target.value)}
+                        />
+                        <label htmlFor="direccion">Dirección</label>
+                        <input
+                            type="text"
+                            name="direccion"
+                            required
+                            onChange={(e) => setDireccion(e.target.value)}
+                        />
+                        <button type="submit" disabled={isSumbmiting}>Enviar</button>
+                    </form>
+                </div>
 
                 ) : (
 
-                    <h3>Gracias por su compra</h3>
+                    <div className="thank-you-message">
+                        <h3>¡Gracias por su compra!</h3>
+                        <p>Tu pedido ha sido recibido exitosamente. Nos pondremos en contacto contigo pronto.</p>
+                        <button onClick={() => window.location.href = '/'}>Volver al inicio</button>
+                    </div>
 
                 )}
 

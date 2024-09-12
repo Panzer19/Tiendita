@@ -4,83 +4,61 @@ import React, { useContext } from "react";
 import "./itemDetail.css";
 import ItemCount from "../../ItemCount/ItemCount";
 import { CartContext } from "../../../context/CartContext";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const ItemDetail = ({ producto }) => {
-    const { agregarAlCarrito } = useContext(CartContext);
+  const { agregarAlCarrito } = useContext(CartContext);
 
+  const handleComprar = (count) => {
+    agregarAlCarrito({ ...producto, cantidad: count });
 
-    const handleComprar = (count) => {
+    Swal.fire({
+      icon: "success",
+      title: "Producto agregado al carrito",
+      text: `${producto.title} - Cantidad: ${count}`,
+      confirmButtonColor: "#E91E63",
+      background: "#FDDDE6",
+      timer: 2000,
+    });
+  };
 
-        agregarAlCarrito({ ...producto, cantidad: count });
+  const { id, image, title, description, category, price } = producto;
 
-        const Toast = Swal.mixin({
-            toast: true,
-            color : "#000000",
-            position: "top-end",
-            showConfirmButton: false,
-            background : '#ffafcc',
-
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-
-              toast.onmouseleave = Swal.resumeTimer;
-            }
-          });
-          Toast.fire({
-            icon: "success",
-            iconColor : "#e0efda",
-            title: "Añadido",
-            width: "15em",
-
-
-          });
-
-    };
-    const { id, image, title, description, category, price } = producto;
-
-    return (
-        <div className="detalleContainer">
-            <div className="detalleContainer-first">
-                <div>
-                    <div className="conteiner-img">
-                        <img
-                            src={image}
-                            alt={`foto del producto ${title}`}
-                            className="prod-img"
-                        />
-                    </div>
-                </div>
-                <div className="divCointainerDescription">
-                    <div>
-                        <h2 className="prod-title">{title}</h2>
-                        <h6>{category}</h6>
-                        <p>Precio: ${price}</p>
-                    </div>
-                    <div className="divCointainerDescription_detail">
-                        <h2>Color:</h2>
-                        <ul>
-                            {description.color.map((el, index) => (
-                                <li key={index}>{el}</li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="divCointainerDescription_detail">
-                        <h2>Talles:</h2>
-                        <ul>
-                            {description.waist.map((el, index) => (
-                                <p key={index}>{el}</p>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <ItemCount fn={handleComprar} />
-            </div>
+  return (
+    <div className="detalle-container">
+      <div className="detalle-imagen">
+        <img src={image} alt={`Imagen de ${title}`} className="prod-img" />
+      </div>
+      <div className="detalle-info">
+        <h2 className="prod-title">{title}</h2>
+        <h4 className="prod-category">{category}</h4>
+        <p className="prod-price">Precio: ${price}</p>
+        <div className="prod-details">
+          <div className="color-section">
+            <h3>Colores disponibles:</h3>
+            <ul className="color-list">
+              {description.color.map((el, index) => (
+                <li key={index} className="color-item">
+                  {el}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="waist-section">
+            <h3>Talles:</h3>
+            <ul className="waist-list">
+              {description.waist.map((el, index) => (
+                <span key={index} className="waist-item">
+                  {el}
+                </span>
+              ))}
+            </ul>
+          </div>
         </div>
-    );
+        <ItemCount fn={handleComprar} />
+      </div>
+    </div>
+  );
 };
 
 export default ItemDetail;

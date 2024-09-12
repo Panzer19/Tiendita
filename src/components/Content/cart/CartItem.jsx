@@ -14,8 +14,16 @@ const CartItem = ({ producto }) => {
                     <h2> {producto.title} </h2>
 
                 </div>
+
+
                 <div className="cartItem-Detail">
+
                     <div>
+
+                        <img src={producto.image} alt="imagen del producto" className="imagen-del-carrito"/>
+
+                    </div>
+                    <div className="datos-del-producto">
                         <p>Precio: ${producto.price} </p>
 
                         <p> TOTAL: ${producto.price * producto.cantidad}</p>
@@ -40,15 +48,8 @@ const CartItem = ({ producto }) => {
                         </button>
                         </div>
 
-
-
-
                     </div>
-                    <div>
 
-                        <img src={producto.image} alt="imagen del producto" className="imagen-del-carrito"/>
-
-                    </div>
                 </div>
             </div>
 
