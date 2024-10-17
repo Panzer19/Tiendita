@@ -1,43 +1,43 @@
-
-
-
-
-import ItemListContainer from './components/Content/ItemsListContainer.jsx'
-import Navbar from './components/Navbar/Navbar'
-import "./App.css"
-
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { ItemDetailContainer } from './components/Content/ItemDetailContainer/ItemDetailContainer.jsx'
-import { CartContextProvider } from './components/context/CartContext.jsx'
-import Cart from './components/Content/cart/Cart.jsx'
-import Checkout from './components/Content/cart/checkout/Checkout.jsx'
+import Header from './Structural-Elements/Header/Header'
+import Main from './Structural-Elements/Main/Main'
+import Aside from './Structural-Elements/Aside/Aside'
 
+import { CartContextProvider } from './context/CartContext'
+
+import ItemListContainer from './Structural-Elements/Aside/Content/ItemsListContainer';
+import { ItemDetailContainer } from './Structural-Elements/Aside/Content/ItemDetailContainer/ItemDetailContainer'
+import Cart from './Structural-Elements/Aside/Content/cart/Cart'
+import Checkout from './Structural-Elements/Aside/Content/cart/checkout/Checkout'
 
 function App() {
 
+
   return (
+    <>
 
-    <CartContextProvider>
+      <CartContextProvider>
 
-      <BrowserRouter>
+        <BrowserRouter>
 
-        <Navbar />
+          <Header/>
 
-        <Routes>
+          <Routes>
 
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/categoria/:categoryName' element={<ItemListContainer />} />
-          <Route path='/detalle/:id' element={<ItemDetailContainer />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/cart/checkout' element={<Checkout/>}/>
-          <Route path='/*' element={<h1>No se que hiciste pero Rompiste Todo</h1>} />
+            <Route path='/' element={<Aside/>}></Route>
+            <Route path='/categoria/:categoryName' element={<ItemListContainer />} />
+            <Route path='/detalle/:id' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/cart/checkout' element={<Checkout/>}/>
+            <Route path='/*' element={<h1>No se que hiciste pero Rompiste Todo</h1>} />
 
-        </Routes>
+          </Routes>
 
-      </BrowserRouter>
+        </BrowserRouter>
 
-    </CartContextProvider>
-
+      </CartContextProvider>
+    </>
   )
 }
 
